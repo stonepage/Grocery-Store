@@ -1,2 +1,2 @@
 # Grocery-Store
-DEMO
+个人练习
