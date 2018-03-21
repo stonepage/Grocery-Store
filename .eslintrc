@@ -1,0 +1,58 @@
+{
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true
+	},
+	"extends": "standard",
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"rules": {
+		// 缩进
+		"indent": "off",
+
+		// 没有使用定义过的变量
+		"no-unused-vars": "off",
+
+		// function的左括号之前使用一致的空格
+		"space-before-function-paren": "off",
+
+		// 箭头函数的箭头前后使用一致的空格
+		"arrow-spacing": "off",
+
+		// 要求箭头函数的参数使用圆括号
+		"arrow-parens": "error",
+
+		// 分号
+		"semi": "off",	// or [0]
+
+		// 强制分号前后有空格
+		"semi-spacing": "off",
+
+		// 不能有多余的分号
+		"no-extra-semi": "error",
+
+		// 不能使用tab
+		"no-tabs": "off",
+
+		// 不允许多个空行
+		"no-multiple-empty-lines": "off",
+
+		"react/jsx-filename-extension": [0],
+
+		"standard/object-curly-even-spacing": "off",
+
+		// "object-curly-spacing": "off",
+
+		"no-useless-constructor": "off",
+
+		"padded-blocks": "off"
+
+	}
+}
