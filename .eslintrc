@@ -20,6 +20,8 @@
 		// 没有使用定义过的变量
 		"no-unused-vars": "off",
 
+		"no-undef": "off",
+
 		// function的左括号之前使用一致的空格
 		"space-before-function-paren": "off",
 

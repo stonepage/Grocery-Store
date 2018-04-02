@@ -3,12 +3,13 @@
 		["env", {
 			"modules": false
 		}],
-		"stage-0",
-		"react"
+		"stage-0"
 	],
 	"plugins": [
-		"react-hot-loader/babel",
-		"transform-runtime"
+		["component", {
+			"libraryName": "element-ui",
+			"styleLibraryName": "theme-chalk"
+		}]
 	]
 }
 
