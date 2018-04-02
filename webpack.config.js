@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:47:17
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-02 14:06:48
+* @Last Modified time: 2018-04-02 20:11:02
 */
 const _path = require('path');
 const webpack = require('webpack');
@@ -58,36 +58,31 @@ const config = {
 				exclude: /node_modules/,
 				loader: 'babel-loader',
 			},
-			// {
-			// 	test: /\.(less)$/,
-			// 	use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-			// 		fallback: 'style-loader',
-			// 		use: [{
-			// 			loader: 'css-loader'
-			// 		}, {
-			// 			loader: 'less-loader',
-			// 			options: `{'sourceMap':true,'modifyVars':${JSON.stringify(theme)}}`
-			// 		}]
-			// 	})),
-			// 	include: [
-			// 		_path.resolve(__dirname, 'src/'),
-			// 		// _path.resolve(__dirname, 'node_modules/antd-mobile')
-			// 	],
-			// },
+			{
+				test: /\.(less)$/,
+				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+					use: [{
+						loader: 'css-loader'
+					}, {
+						loader: 'less-loader',
+						// options: `{'sourceMap':true,'modifyVars':${JSON.stringify(theme)}}`
+					}],
+					fallback: 'style-loader',
+				})),
+				exclude: /node_modules/,
+			},
 			// Element UI
 			{
 				test: /\.(scss)$/,
 				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-					fallback: 'style-loader',
 					use: [{
 						loader: 'css-loader'
 					}, {
 						loader: 'sass-loader',
-					}]
+					}],
+					fallback: 'style-loader',
 				})),
-				include: [
-					_path.resolve(__dirname, 'src/'),
-				],
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.(css)$/,
@@ -100,15 +95,11 @@ const config = {
 						// 	localIdentName: '[name]__[local]__[hash:base64:5]'
 						// }
 					}],
-					// 会报错，暂时不知原因
-					// include: [
-					// 	_path.resolve(__dirname, 'src/*/*.css'),
-					// ]
 				})),
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.(jpe?g|png|gif|ico)\??.*$/i,
-				exclude: /node_modules/,
 				use: [{
 					loader: 'url-loader',
 					options: {
@@ -116,18 +107,31 @@ const config = {
 						name: 'images/[name].[ext]',
 					}
 				}],
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-				loader: 'file-loader?name=./font/[name].[ext]'
+				use: [{
+					loader: 'file-loader',
+					options: {
+						name: 'font/[name].[ext]',
+					}
+				}],
 			},
 			// {
-			// 	test: /\.(ejs)/i,
-			// 	loader: 'ejs-loader?variable=data',
+			// 	test: /\.(ejs)$/,
+			// 	use: [{
+			// 		loader: 'ejs-loader',
+			// 		options: {
+			// 			variable: 'data',
+			// 		}
+			// 	}]
 			// },
 			{
 				test: /\.(html|ejs)$/,
-				loader: 'raw-loader',
+				use: [{
+					loader: 'raw-loader',
+				}]
 			},
 		]
 	},
