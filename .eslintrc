@@ -46,6 +46,30 @@
 		// 不允许多个空行
 		"no-multiple-empty-lines": "off",
 
+		// Expected space(s) after "if"
+		"keyword-spacing": "off",
+		
+		// 要求回调函数中有容错处理
+		"handle-callback-err": "off",
+
+		// 要求或禁止使用拖尾逗号
+		"comma-dangle": "off",
+		
+		// Expected '!==' and instead saw '!='
+		"eqeqeq": "off",
+
+		// 不能有拖尾空格
+		"no-trailing-spaces": "off",
+
+		// 强制函数中的变量要么一起声明要么分开声明
+		"one-var": "off",
+
+		// 不能重复声明
+		"no-redeclare": "off",
+
+		// Import语句得放到第一行
+		"import/first": "off",
+
 		"react/jsx-filename-extension": [0],
 
 		"standard/object-curly-even-spacing": "off",

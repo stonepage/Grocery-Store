@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:47:17
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-05 16:30:50
+* @Last Modified time: 2018-04-10 16:48:55
 */
 const _path = require('path');
 const webpack = require('webpack');
@@ -33,8 +33,7 @@ let getHtmlConfig = function(name, title) {
 const config = {
 	entry: {
 		// 这里走的是多入口，生产环境打包完了也是多个js文件
-		// app: [entryPath('App.js')],
-		app: [entryPath('index/index.js')],
+		app: [entryPath('app/app.js')],
 		login: [entryPath('login/index.js')],
 		vendor: ['jquery'],
 	},
@@ -62,7 +61,11 @@ const config = {
 				test: /\.(less)$/,
 				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
 					use: [{
-						loader: 'css-loader'
+						loader: 'css-loader',
+						// options: {
+						// 	modules: true,
+						// 	localIdentName: '[name]__[local]__[hash:base64:5]'
+						// }
 					}, {
 						loader: 'less-loader',
 						// options: `{'sourceMap':true,'modifyVars':${JSON.stringify(theme)}}`
@@ -72,28 +75,28 @@ const config = {
 				exclude: /node_modules/,
 			},
 			// Element UI
-			{
-				test: /\.(scss)$/,
-				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-					use: [{
-						loader: 'css-loader'
-					}, {
-						loader: 'sass-loader',
-					}],
-					fallback: 'style-loader',
-				})),
-				exclude: /node_modules/,
-			},
+			// {
+			// 	test: /\.(scss)$/,
+			// 	use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+			// 		use: [{
+			// 			loader: 'css-loader'
+			// 		}, {
+			// 			loader: 'sass-loader',
+			// 		}],
+			// 		fallback: 'style-loader',
+			// 	})),
+			// 	exclude: /node_modules/,
+			// },
 			{
 				test: /\.(css)$/,
 				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: [{
 						loader: 'css-loader',
-						// options: {
-						// 	modules: true,
-						// 	localIdentName: '[name]__[local]__[hash:base64:5]'
-						// }
+						options: {
+							modules: true,
+							localIdentName: '[name]__[local]__[hash:base64:5]'
+						}
 					}],
 				})),
 				exclude: /node_modules/,
@@ -118,17 +121,19 @@ const config = {
 					}
 				}],
 			},
-			// {
-			// 	test: /\.(ejs)$/,
-			// 	use: [{
-			// 		loader: 'ejs-loader',
-			// 		options: {
-			// 			variable: 'data',
-			// 		}
-			// 	}]
-			// },
 			{
-				test: /\.(html|ejs)$/,
+				test: /\.(ejs)$/,
+				use: [{
+					// ejs-compiled-loader
+					loader: 'ejs-loader',
+					options: {
+						// htmlmin: true,
+						variable: 'data',
+					}
+				}]
+			},
+			{
+				test: /\.(html)$/,
 				use: [{
 					loader: 'raw-loader',
 				}]
@@ -155,7 +160,7 @@ const config = {
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery: 'jquery',
-			// _: 'underscore',
+			_: 'lodash',
 		}),
 
 		// new webpack.NamedModulesPlugin(),
@@ -202,7 +207,18 @@ if (isDev) {
 		},
 
 		// gzip
-		compress: true,		
+		compress: true,
+
+		proxy: {
+			'/product/*': {
+				target: "http://happymmall.com",
+				changeOrigin: true,
+				// pathRewrite: {
+				// 	'^/api/old-path': '/api/new-path', // rewrite path
+				// 	'^/api/remove/path': '/path' // remove base path
+				// },
+			},
+		}
 	};
 
 	config.devtool = 'cheap-module-eval-source-map';
