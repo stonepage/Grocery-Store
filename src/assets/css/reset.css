@@ -1,0 +1,65 @@
+/*
+* @Author: GARNET
+* @Date:   2018-03-29 13:27:41
+* @Last Modified by:   GARNET
+* @Last Modified time: 2018-04-11 13:48:38
+*/
+html, body, label, input, a, span, strong, em, img, hr, p, div, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, button, select, textarea, table, tr, td, fieldset, iframe, header, aside, section, article, footer, nav, figure {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+img {
+    -ms-interpolation-mode: bicubic
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+a:active {
+    outline: 0 none;
+}
+
+i, em, b {
+    font-style: normal;
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: 100%
+}
+
+li {
+    list-style: none
+}
+
+button, input, select, textarea {
+    font-size: 100%;
+    vertical-align: middle;
+    color: inherit
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+    vertical-align: top;
+    padding: 10px
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td, th {
+    word-wrap: break-word;
+    text-align: left
+}
+
+

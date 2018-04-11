@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:47:17
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-10 16:48:55
+* @Last Modified time: 2018-04-10 22:01:31
 */
 const _path = require('path');
 const webpack = require('webpack');
@@ -62,10 +62,10 @@ const config = {
 				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
 					use: [{
 						loader: 'css-loader',
-						// options: {
-						// 	modules: true,
-						// 	localIdentName: '[name]__[local]__[hash:base64:5]'
-						// }
+						options: {
+							modules: true,
+							localIdentName: '[name]__[local]__[hash:base64:5]'
+						}
 					}, {
 						loader: 'less-loader',
 						// options: `{'sourceMap':true,'modifyVars':${JSON.stringify(theme)}}`
@@ -93,10 +93,10 @@ const config = {
 					fallback: 'style-loader',
 					use: [{
 						loader: 'css-loader',
-						options: {
-							modules: true,
-							localIdentName: '[name]__[local]__[hash:base64:5]'
-						}
+						// options: {
+						// 	modules: true,
+						// 	localIdentName: '[name]__[local]__[hash:base64:5]'
+						// }
 					}],
 				})),
 				exclude: /node_modules/,

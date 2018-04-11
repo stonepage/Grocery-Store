@@ -1,13 +1,35 @@
-<div class="el-header">
-	<img src="" alt="element-logo" class="header-logo">
-	<ul class="header-operations">
-		<li>切换主题色</li>
-		<li class="header-download">下载主题</li>
-		<li>帮助</li>
+<div class="el-header clearfix">
+	<!-- <div class="header-logo">HSTORE</div> -->
+	<div class="header-left">
+		<div class="user not-login">
+			<a href="javascript:;" class="link js-login">登录</a>
+			<a href="javascript:;" class="link js-register">注册</a>
+		</div>
+		<div class="user login">
+			<a href="javascript:;" class="link-text">
+				<label>欢迎，</label>
+				<a href="javascript:;" class="username"></a>
+			</a>
+			<a href="javascript:;" class="link js-logout">退出</a>
+		</div>
+	</div>
+
+	<ul class="cart-list">
 		<li>
-			<span class="header-lang is-active">中文</span>
-			<span>/</span>
-			<span class="header-lang">En</span>
+			<a class="link" href="./cart.html">
+				<i class="el-icon-goods"></i>
+				<i>购物车</i>(<span class="cart-count">0</span>)
+			</a>
+		</li>
+		<li>
+			<a class="link" href="./order-list.html">我的订单</a>
+		</li>
+		<li>
+			<a class="link" href="./user-center.html">我的HStore</a>
+		</li>
+		<li>
+			<a class="link" href="./about.html">关于HStore</a>
 		</li>
 	</ul>
 </div>
+

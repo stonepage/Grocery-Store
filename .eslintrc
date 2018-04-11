@@ -70,6 +70,9 @@
 		// Import语句得放到第一行
 		"import/first": "off",
 
+		// 拼接字符串中不能少空格
+		"space-infix-ops": "off",
+
 		"react/jsx-filename-extension": [0],
 
 		"standard/object-curly-even-spacing": "off",

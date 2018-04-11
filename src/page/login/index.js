@@ -2,16 +2,17 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:02:25
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-10 16:56:33
+* @Last Modified time: 2018-04-10 22:25:37
 */
 
 
-import '../../assets/css/mixin.less';
-import style from './index.css';
+import gs from '../../utils/gs';
+import '../../assets/css/mixin.css';
+import styles from './index.less';
 
 
 function Index() {
-	var r = $('<div class=' + style.q + '><span>登录</span></div>')
+	var r = $('<div class=' + styles.q + '><span>登录11</span></div>')
 	$('body').append(r);
 }
 
