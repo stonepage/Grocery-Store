@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:47:17
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-10 22:01:31
+* @Last Modified time: 2018-04-13 16:27:13
 */
 const _path = require('path');
 const webpack = require('webpack');
@@ -30,13 +30,17 @@ let getHtmlConfig = function(name, title) {
 	};
 };
 
+let entryObj = {
+	app: [entryPath('app/app.js')],
+	login: [entryPath('login/index.js')],
+	result: [entryPath('result/index.js')],
+	vendor: ['jquery'],	
+}
+
+
 const config = {
-	entry: {
-		// 这里走的是多入口，生产环境打包完了也是多个js文件
-		app: [entryPath('app/app.js')],
-		login: [entryPath('login/index.js')],
-		vendor: ['jquery'],
-	},
+	// 这里走的是多入口，生产环境打包完了也是多个js文件
+	entry: entryObj,
 
 	output: {
 		path: _path.join(__dirname, 'dist'),
@@ -133,7 +137,7 @@ const config = {
 				}]
 			},
 			{
-				test: /\.(html)$/,
+				test: /\.(html|tpl)$/,
 				use: [{
 					loader: 'raw-loader',
 				}]
@@ -160,7 +164,7 @@ const config = {
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery: 'jquery',
-			_: 'lodash',
+			_: 'underscore',
 		}),
 
 		// new webpack.NamedModulesPlugin(),
@@ -173,7 +177,8 @@ const config = {
 
 		// 模板
 		new HtmlWebpackPlugin(getHtmlConfig('app', '首页')),
-		new HtmlWebpackPlugin(getHtmlConfig('login', '登录')),
+		new HtmlWebpackPlugin(getHtmlConfig('login', '用户登录')),
+		new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
 
 
 

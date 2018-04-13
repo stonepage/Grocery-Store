@@ -2,19 +2,14 @@
 * @Author: GARNET
 * @Date:   2018-04-05 17:41:49
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-09 15:14:32
+* @Last Modified time: 2018-04-13 14:46:22
 */
 
-'use strict';
-
-// import htmlTips from './tips.ejs';
-// import Hogan from 'hogan.js';
-var Hogan = require('hogan.js');
-var htmlTips = require('../view/tips.ejs');
+const Hogan = require('hogan.js');
+var htmlTips = require('../page/common/message/tips.tpl');
 
 
-
-var config = {
+const config = {
 	serverHost: '',
 };
 
@@ -39,7 +34,7 @@ var gs = {
 					json.error && json.error(res.msg);
 				}
 			},
-			error: function(err) {
+			error: function(res) {
 				// 网络问题
 				json.error && json.error(res.msg);
 			}
@@ -80,6 +75,7 @@ var gs = {
 			return tpl;
 		} else if (arguments.length == 2) {
 			var result = tpl.render(data);
+			console.log(tpl);
 			return result;
 		}
 
@@ -88,6 +84,10 @@ var gs = {
 	// 通用提示——成功
 	successTips: function(msg) {
 		alert(msg || '操作成功！');
+
+		// 自定义弹出层
+		// var tpl = htmlTips;
+		// return this.renderTpl(tpl, msg);
 	},
 
 	// 通用提示——错误
@@ -160,12 +160,6 @@ module.exports = gs;
 
 
 // ============================================================
-
-// 通用提示——成功
-// successTips: function(msg) {
-// 	var tpl = htmlTips;
-// 	return this.renderTpl(tpl, msg);
-// }
 
 // export function getByStyle(ele, attr) {
 // 	if (window.getComputedStyle) {

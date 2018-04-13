@@ -2,16 +2,16 @@
 	<div class="el-message-box">
 		<div class="el-message-box__header">
 			<div class="el-message-box__title">
-				<span>{{title}}</span>
+				<span style="color: teal;">{{title}}</span>
 			</div>
 			<button type="button" class="el-message-box__headerbtn"><i class="el-message-box__close el-icon-close"></i>
 			</button>
 		</div>
 		<div class="el-message-box__content">
 			<div class="el-message-box__message">
-				<p>
-					<span>{{con}}</span><i style="color: teal;">VNode</i>
-				</p>
+				<div>
+					<span>{{con}}</span>
+				</div>
 			</div>
 			<div class="el-message-box__input" style="display: none;">
 				<div class="el-input">
