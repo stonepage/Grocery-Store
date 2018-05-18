@@ -82,6 +82,9 @@
 		# 不能有不必要的分号
 		# "no-extra-semi": "off",
 
+		# no-new
+		# "no-new": "off",
+
 		"react/jsx-filename-extension": [0],
 
 		"standard/object-curly-even-spacing": "off",

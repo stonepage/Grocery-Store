@@ -2,38 +2,25 @@
 * @Author: GARNET
 * @Date:   2018-04-09 18:46:21
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-05-17 17:08:46
+* @Last Modified time: 2018-05-17 16:54:51
 */
 
 
 var gs = require('../../../utils/gs');
 var _user = require('../../../service/user');
 var _cart = require('../../../service/cart');
-var topNavLoginTpl =require('./topNavLogin.tpl');
 
-function Nav() {}
 
-Nav.prototype = {
-
-	constructor: Nav,
+const Nav = {
 
 	init: function() {
-		this.initTpl();
+		this.bindEvent();
 		this.loadUserInfo();
 		this.loadCartCount();
-		
 		return this;
 	},
 
-
-	initTpl: function() {
-		this.tpl = gs.renderTpl(topNavLoginTpl, {
-			signIn: '登录',
-			signUp: '注册'
-		})
-	},
-
-	bindEventBeforeLogin: function() {
+	bindEvent: function() {
 		// 登录
 		$('.js-login').on('click', function(e) {
 			gs.doLogin()
@@ -43,33 +30,26 @@ Nav.prototype = {
 		$('.js-register').on('click', function(e) {
 			window.location.href= './user-register.html';
 		});	
-	},
 
-	bindEventAfterLogin: function() {
 		// 登出
 		$('.js-logout').on('click', function(e) {
-			_user.userLogout(function() {
+			user.logout(function() {
 				window.location.reload();
 			}, function() {
 				gs.errorTips(errMsg);
 			});
-		});
+		});			
+
 	},
 
 
 	// 加载用户信息
 	loadUserInfo: function() {
-		var _t = this;
 		_user.checkLoginStatus(function(res) {
-			// 用户登录后
-			console.log(res)
-			$('.user.not-login').html('').siblings('.user.login').show().find('.username').text(res.username);
-			_t.bindEventAfterLogin();
+			console.log('加载用户信息');
 		}, function(errMsg) {
-			// 用户未登录时
-			console.log(errMsg)
-			$('.user.not-login').html(_t.tpl);
-			_t.bindEventBeforeLogin();
+			console.log('123')
+			// gs.errorTips(errMsg);
 		});
 	},
 
@@ -106,8 +86,7 @@ Nav.prototype = {
 // You can‘t mix import and module.exports.
 
 
-// export default nav.init();
-var nav = new Nav();
-module.exports = nav.init();
+// export default Nav.init();
+module.exports = Nav.init();
 
 

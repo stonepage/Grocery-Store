@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-04-12 16:11:18
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-12 20:03:27
+* @Last Modified time: 2018-05-18 17:14:06
 */
 
 
@@ -26,7 +26,7 @@ const Aside = {
 			}, {
 				name: 'passwordModified',
 				desc: '修改密码',
-				href: './password-update.html'
+				href: './password-reset.html'
 			}, {
 				name: 'about',
 				desc: '关于',

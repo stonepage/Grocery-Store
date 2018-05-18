@@ -2,16 +2,16 @@
 * @Author: GARNET
 * @Date:   2018-03-29 22:52:41
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-10 18:24:03
+* @Last Modified time: 2018-05-18 15:26:45
 */
 
 
 .q {
-	background-color: red;
-	span {
+	background-color: pink;
+
+}
+/* 	span {
 		color: #fff;
 		font-size: 24px;
 	}
-}
-
-
+ */

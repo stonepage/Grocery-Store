@@ -2,19 +2,19 @@
 * @Author: GARNET
 * @Date:   2018-03-29 13:26:26
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-10 18:26:59
+* @Last Modified time: 2018-05-18 11:37:55
 */
 
 
 .con {
-	font-size: 20px;
+	font-size: 0px;
 	background-color: #fff;
+
+}
+
 	.b {
 		font-size: 14px;
 		color: skyblue;
 	}
-}
-
-
 
 

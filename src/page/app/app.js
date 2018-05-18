@@ -2,19 +2,19 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:03:04
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-13 14:46:48
+* @Last Modified time: 2018-05-18 11:42:17
 */
 
 var gs = require('../../utils/gs');
 var asideMenu = require('../common/aside/index');
-var styles = require('./app.less');
+var styles = require('./app.css');
 require('../common/index');
-require('../../assets/css/mixin.css');
+require('../../assets/css/mixin.less');
 
 
 
 asideMenu.init({
-	name: 'userCenter',
+	name: 'passwordModified',
 })
 
 function Login() {
@@ -27,7 +27,7 @@ function Login() {
 	}
 	var dom = '<div class=' + styles.con + '><b class=' + styles.b + '>{{con}}</b></div>';
 	var p = gs.renderTpl(dom, data);
-	// $('.app-hs').append(p)
+	$('.app-hs').append(p)
 
 
 }
@@ -48,10 +48,7 @@ function init() {
 	btn.on('click', function(e) {
 		e.stopPropagation();
 		e.preventDefault();
-		var dom = gs.successTips({
-			title: '123',
-			con: '321'
-		});
+		var dom = gs.successTips();
 		$('body').append(dom);
 	});
 }

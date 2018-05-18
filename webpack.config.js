@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:47:17
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-13 16:27:13
+* @Last Modified time: 2018-05-18 11:33:34
 */
 const _path = require('path');
 const webpack = require('webpack');
@@ -18,6 +18,26 @@ function entryPath(file) {
 	return _path.resolve(__dirname, 'src/page/', file);
 }
 
+let entryObj = {
+	'app': [entryPath('app/app.js')],
+	'user-login': [entryPath('user-login/index.js')],
+	'user-register': [entryPath('user-register/index.js')],
+	'password-reset': [entryPath('password-reset/index.js')],
+	'result': [entryPath('result/index.js')],
+	'vendor': ['jquery'],
+}
+
+var Chunks;
+function assignChunks(obj) { 
+	var arr = [];
+	for (let key in obj) {
+		arr.push(key);
+	}
+	return arr;
+}
+Chunks = assignChunks(entryObj);
+
+// 生产环境时
 let getHtmlConfig = function(name, title) {
 	return {
 		template: './src/view/' + name + '.ejs',
@@ -29,13 +49,6 @@ let getHtmlConfig = function(name, title) {
 		chunks: ['manifest', 'vendor', name],
 	};
 };
-
-let entryObj = {
-	app: [entryPath('app/app.js')],
-	login: [entryPath('login/index.js')],
-	result: [entryPath('result/index.js')],
-	vendor: ['jquery'],	
-}
 
 
 const config = {
@@ -66,44 +79,26 @@ const config = {
 				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
 					use: [{
 						loader: 'css-loader',
-						options: {
-							modules: true,
-							localIdentName: '[name]__[local]__[hash:base64:5]'
-						}
 					}, {
 						loader: 'less-loader',
-						// options: `{'sourceMap':true,'modifyVars':${JSON.stringify(theme)}}`
 					}],
 					fallback: 'style-loader',
 				})),
 				exclude: /node_modules/,
 			},
-			// Element UI
-			// {
-			// 	test: /\.(scss)$/,
-			// 	use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-			// 		use: [{
-			// 			loader: 'css-loader'
-			// 		}, {
-			// 			loader: 'sass-loader',
-			// 		}],
-			// 		fallback: 'style-loader',
-			// 	})),
-			// 	exclude: /node_modules/,
-			// },
 			{
 				test: /\.(css)$/,
 				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: [{
 						loader: 'css-loader',
-						// options: {
-						// 	modules: true,
-						// 	localIdentName: '[name]__[local]__[hash:base64:5]'
-						// }
+						options: {
+							modules: true,
+							localIdentName: '[name]__[local]__[hash:base64:5]'
+						}
 					}],
 				})),
-				exclude: /node_modules/,
+				// exclude: /node_modules/,
 			},
 			{
 				test: /\.(jpe?g|png|gif|ico)\??.*$/i,
@@ -150,7 +145,7 @@ const config = {
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'vendor',
 			filename: 'js/vendor.js',
-			chunks: ['app', 'login', 'vendor']
+			chunks: Chunks
 		}),
 		
 		new webpack.optimize.CommonsChunkPlugin({
@@ -177,8 +172,10 @@ const config = {
 
 		// 模板
 		new HtmlWebpackPlugin(getHtmlConfig('app', '首页')),
-		new HtmlWebpackPlugin(getHtmlConfig('login', '用户登录')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-login', '用户登录')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
 		new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
+		new HtmlWebpackPlugin(getHtmlConfig('password-reset', '找回密码')),
 
 
 

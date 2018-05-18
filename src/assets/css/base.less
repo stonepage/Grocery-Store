@@ -1,0 +1,455 @@
+/*
+* @Author: GARNET
+* @Date:   2018-03-29 13:27:56
+* @Last Modified by:   GARNET
+* @Last Modified time: 2018-05-18 10:52:29
+*/
+
+html {
+    width: 100%;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    overflow: auto;
+}
+
+body {
+	min-width: 1080px;
+	padding-bottom: 65px;
+	font-size: 14px;
+	position: relative;
+    background-color: #f6f6f6;
+    font-family: tahoma, arial, Microsoft YaHei, sans-serif;
+}
+.wrap {
+	width: 1080px;
+	margin: 0 auto;
+}
+
+/* 链接 */
+.link {
+	color: #333;
+	cursor: pointer;
+}
+.link:hover {
+	color: #F56C6C;
+}
+.link-text {
+	color: #999;
+	cursor: default;
+}
+
+
+/* ===========================================================
+ * 主要样式 
+ */
+.app-hs {
+
+}
+/* ===========================================================
+ * 头部-登录注册 
+ */
+.app-hs .header-left {
+	float: left;
+}
+.app-hs .header-left a {
+	/* margin-right: 10px; */
+}
+
+.app-hs .user.login {
+	display: none;
+}
+/* ===========================================================
+ * 头部-登录注册 
+ */
+.el-header {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 120px;
+	/* border-bottom: 1px solid #ddd; */
+	background-color: #eee;
+}
+.el-header a {
+	color: #999;
+}
+
+/* ===========================================================
+ * 非主页面头部 
+ */
+.header-wrap {
+	height: 40px;
+	line-height: 40px;
+	background-color: #fff;
+}
+.header-wrap a {
+	font-size: 26px;
+	font-weight: 700;
+	color: #F56C6C;
+}
+
+
+
+/* ===========================================================
+ * 头部-购物车 
+ */
+.app-hs .cart-list {
+	float: right;
+	li {
+		margin-right: 10px;
+		display: inline-block;
+		vertical-align: middle;		
+	}
+}
+
+
+/* ===========================================================
+ * 头部-search 
+ */
+.search-wrap {
+	padding: 30px 10px;
+	text-align: center;
+	.logo {
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 26px;
+		font-weight: 700;
+		margin-right: 30px;
+		color: #F56C6C;
+		/* width: 64px; */
+		/* height: 64px; */
+		/* background: url(../images/pic.png) no-repeat 0 0; */		
+	}
+	.search-box {
+		font-size: 0;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.search-input {
+		width: 550px;
+		height: 36px;
+		line-height: 36px;
+		font-size: 15px;
+		padding: 0 10px;
+		border: 2px solid #F56C6C;
+	}
+
+	.search-btn {
+		padding-left: 30px;
+		padding-right: 30px;
+		border-radius: 0;
+	}	
+}
+
+
+/* ===========================================================
+ * 左侧二级菜单 
+ */
+.el-container {
+
+}
+.el-aside {
+	width: 150px;
+
+}
+.el-menu {
+	min-height: 200px;
+	padding: 15px 0;
+	border: 0;
+	
+}
+.el-menu li {
+	overflow: hidden;
+	padding-left: 14px;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 5px;
+	font-size: 0;	
+}
+.el-menu li a {
+	font-size: 14px;
+	color: #626262;
+	-webkit-transition: color .2s ease;
+	-o-transition: color ease .2s;
+	-moz-transition: color ease .2s;
+	transition: color .2s ease;
+}
+.el-menu-item.is-active a {
+	color: #f56c6c;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 15px 0;
+	text-align: center;
+}
+
+/* ===========================================================
+ * 结果页
+ */
+.result-page {
+	margin-top: 20px;
+	padding: 30px;
+	text-align: center;
+	background-color: #fff;
+}
+.result-page p {
+	font-size: 30px;
+	color: #555;
+}
+.result-page .result-con {
+	margin-top: 20px;
+}
+.result-page .result-con .link {
+	padding: 2px 10px;
+	border: 1px solid #ccc;
+}
+.result-page .result-con .link:hover {
+	padding: 2px 10px;
+	border-color: #F56C6C;
+}
+
+/* ===========================================================
+ * 登录注册页
+ */
+.user-entry {
+	padding: 40px 0;
+	background-color: #F56C6C;
+}
+.user-entry .entry-con {
+	position: relative;
+	width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #fff;
+}
+
+.entry-con .entry-title {
+	border-bottom: 1px solid #ddd;
+	padding: 10px 0;
+	font-size: 20px;
+	font-weight: 700;
+	color: #666;
+	text-align: center;
+}
+
+/* ===========================================================
+ * 错误提示
+ */
+.entry-con .err-item {
+	min-height: 28px;
+	margin: 5px 0;
+}
+.entry-con .err-con {
+	line-height: 26px;
+	padding-left: 40px;
+	border: 1px solid red;
+	background-color: #fde9e9;
+	color: red;
+}
+.entry-con .ok-con {
+	line-height: 26px;
+	padding-left: 40px;
+	border: 1px solid #67C23A;
+	background-color: #e7f7e4;
+	color: #67C23A;
+}
+
+.entry-con .err-item .err-icon {
+	position: absolute;
+	font-size: 14px;
+	left: 14px;
+	top: 50%;
+	margin-top: -7px
+}
+
+.entry-con .entry-item {
+	position: relative;
+	border: 1px solid #bdbdbd;
+	margin-bottom: 20px
+}
+
+.entry-con .entry-item .user-label {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 40px;
+	line-height: 36px;
+	background: #f3f3f3;
+	font-size: 18px;
+	color: #d3d3d3;
+	text-align: center;
+	border-right: 1px solid #bdbdbd
+}
+
+.entry-con .entry-item .user-content {
+	padding: 10px 0 10px 50px;
+	width: 340px;
+	height: 18px;
+	line-height: 18px;
+	font-size: 15px;
+	color: #333;
+}
+
+.entry-con .el-button {
+	display: block;
+	width: 100%;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.entry-con .link-item {
+	margin: 15px auto 0;
+	text-align: right;
+}
+
+.entry-con .link {
+	padding: 0 5px;
+	color: #666;
+}
+
+.entry-con .link:hover {
+	color: #e4393c
+}
+
+/* ===========================================================
+ * 找回密码
+ */
+ .user-entry.password-reset {
+ 	background: none;
+ }
+.reset-hint {
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+
+
+
+
+.el-icon-loading {
+	font-size: 38px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -26px;
+	margin-top: -26px;
+	/* color: #409EFF; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================== */
+.ml5 {
+	margin-left: 5px;
+}
+.ml10 {
+	margin-left: 10px;
+}
+.mr10 {
+	margin-right: 10px;
+}
+
+.mr15 {
+	margin-right: 15px;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:before {
+	display: table;
+	content: "";
+	clear: both;
+}
+
+.clearfix:after {
+	display: table;
+	content: "";
+	clear: both;
+}
+
+.no-radius {
+	border-radius: 0;
+}
+.hide {
+	display: none;
+}
+
+/* =========================================================== */
+
+
+.color-red {
+	color: #d52a29;
+}
+
+.color-orange {
+	color: #ea7130;
+}
+
+.color-cyan {
+	color: #26a2c1;
+}
+
+.color-purple {
+	color: #7963e6;
+}
+
+.color-blue {
+	color: #497ce3;
+}
+
+.color-green {
+	color: #6aab20;
+}
+
+.loading {
+	display: inline-block;
+	background: url(../images/loading.gif) no-repeat center;
+	width: 64px;
+	height: 48px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -32px;
+	margin-top: -24px;
+}
+

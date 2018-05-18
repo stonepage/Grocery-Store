@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= require('./layout/meta-common.html') %>
+<title>开心购物-用户登录</title>
+</head>
+<body>	
+	<div class="app-hs">
+		<%= require('./layout/header.html') %>
+		<div class="user-entry">
+			<div class="entry-con">
+				<div class="entry-title">用户登录</div>
+				<!-- 错误提示 -->
+				<div class="err-item">
+					<div class="err-con hide">
+						<i class="el-icon-error"></i>
+						<span class="err-msg"></span>
+					</div>
+				</div>
+				<!-- 表单 -->
+				<ul>
+					<li class="entry-item">
+						<label class="user-label" for="username">
+							<!-- <i class="fa fa-user"></i> -->
+							<i class="el-icon-setting"></i>
+						</label>
+						<input type="text" class="user-content" id="username" placeholder="请输入用户名" autocomplete="off">
+					</li>
+					<li class="entry-item">
+						<label class="user-label" for="password">
+							<!-- <i class="fa fa-lock"></i> -->
+							<i class="el-icon-setting"></i>
+						</label>
+						<input type="password" class="user-content" id="password" placeholder="请输入密码">
+					</li>
+				</ul>
+
+				<button type="button" class="el-button el-button--primary el-button--medium no-radius" id="submitLogin">登录</button>
+
+				<div class="link-item">
+					<a class="link pass-forget" href="./password-reset.html" target="_blank">忘记密码</a>
+					<a class="link register" href="./user-register.html" target="_blank">免费注册</a>
+				</div>
+					
+			</div>
+		</div>
+	</div>
+	<%= require('./layout/footer.html') %>
+</body>
+</html>

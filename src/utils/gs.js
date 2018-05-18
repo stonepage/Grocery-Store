@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-04-05 17:41:49
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-04-13 14:46:22
+* @Last Modified time: 2018-05-18 15:53:39
 */
 
 const Hogan = require('hogan.js');
@@ -21,6 +21,7 @@ var gs = {
 		$.ajax({
 			type: json.method || 'get',
 			url: json.url || '',
+			data: json.data || '',
 			dataType: json.dataType || 'json',
 			success: function(res) {
 				// 请求成功
@@ -72,10 +73,9 @@ var gs = {
 		}
 		var tpl = Hogan.compile(template);
 		if (arguments.length == 1) {
-			return tpl;
+			return tpl.text;
 		} else if (arguments.length == 2) {
 			var result = tpl.render(data);
-			console.log(tpl);
 			return result;
 		}
 
@@ -104,17 +104,17 @@ var gs = {
 		}
 		// 手机号验证
 		if (type === 'cellphone') {
-			return /^1\d{10}$/.text(value);
+			return /^1\d{10}$/.test(value);
 		}
 		// 邮箱验证
 		if (type === 'email') {
-			return /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.text(value);
+			return /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/.test(value);
 		}
 	},
 
 	// 统一登录
 	doLogin: function() {
-		window.location.href = './login.html?redirect=' + encodeURIComponent(window.location.href);
+		window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
 	},
 	
 	// 跳回首页
