@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-04-12 16:11:18
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-05-18 17:14:06
+* @Last Modified time: 2018-05-25 17:33:10
 */
 
 
@@ -14,6 +14,7 @@ const Aside = {
 
 	option: {
 		name: '',
+		curHref: '',
 		navList: [
 			{
 				name: 'userCenter',
@@ -24,9 +25,9 @@ const Aside = {
 				desc: '我的订单',
 				href: './order-list.html'
 			}, {
-				name: 'passwordModified',
+				name: 'passwordUpdate',
 				desc: '修改密码',
-				href: './password-reset.html'
+				href: './password-update.html'
 			}, {
 				name: 'about',
 				desc: '关于',
@@ -37,7 +38,7 @@ const Aside = {
 
 	init: function(option) {
 		// 合并选项
-		$.extend(this.option, option)
+		$.extend(true, this.option, option)
 		this.renderAside();
 	},
 
@@ -47,6 +48,7 @@ const Aside = {
 		for (var i = 0; i < len; i++) {
 			if (this.option.navList[i].name === this.option.name) {
 				this.option.navList[i].isActive = true;
+				this.option.navList[i].curHref = 'javascript:;';
 			}
 		}
 

@@ -2,14 +2,14 @@
 * @Author: GARNET
 * @Date:   2018-04-09 18:46:21
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-05-17 17:08:46
+* @Last Modified time: 2018-05-25 18:17:17
 */
 
 
-var gs = require('../../../utils/gs');
-var _user = require('../../../service/user');
-var _cart = require('../../../service/cart');
-var topNavLoginTpl =require('./topNavLogin.tpl');
+let gs = require('../../../utils/gs');
+let _user = require('../../../service/user');
+let _cart = require('../../../service/cart');
+let topNavLoginTpl =require('./topNavLogin.tpl');
 
 function Nav() {}
 
@@ -59,7 +59,7 @@ Nav.prototype = {
 
 	// 加载用户信息
 	loadUserInfo: function() {
-		var _t = this;
+		let _t = this;
 		_user.checkLoginStatus(function(res) {
 			// 用户登录后
 			console.log(res)
@@ -107,7 +107,7 @@ Nav.prototype = {
 
 
 // export default nav.init();
-var nav = new Nav();
+let nav = new Nav();
 module.exports = nav.init();
 
 

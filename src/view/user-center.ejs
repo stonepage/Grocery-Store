@@ -1,4 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= require('./layout/meta-common.html') %>
+<title>开心购物-用户中心</title>
+</head>
+<body>
+	<div class="app-hs">
+		<%= require('./layout/top-nav.html') %>
+		<%= require('./layout/search-box.html') %>
 
+		<div role="navigation" class="el-breadcrumb">
+			<div class="wrap">
+				<span class="el-breadcrumb__item">
+					<a href="./app.html"><span class="el-breadcrumb__inner">首页</span></a>
+					<span class="el-breadcrumb__separator">/</span>
+				</span>
+				<span class="bread-list"></span>
+			</div>
+		</div>
+
+		<div class="el-container wrap">
+			<%= require('./layout/aside.html') %>
+			<div class="el-main user-center-con">
+				<h2>个人中心</h2>
+				<div class="user-center-info">
+					<div class="loading"></div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<%= require('./layout/footer.html') %>
+</body>
+</html>
 
 
 

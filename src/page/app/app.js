@@ -2,19 +2,19 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:03:04
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-05-18 11:42:17
+* @Last Modified time: 2018-05-25 16:58:05
 */
 
+require('../common/index');
+require('../../assets/css/mixin.less');
 var gs = require('../../utils/gs');
 var asideMenu = require('../common/aside/index');
 var styles = require('./app.css');
-require('../common/index');
-require('../../assets/css/mixin.less');
 
 
 
 asideMenu.init({
-	name: 'passwordModified',
+	name: 'about',
 })
 
 function Login() {

@@ -2,11 +2,11 @@
 * @Author: GARNET
 * @Date:   2018-04-05 17:41:49
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-05-18 15:53:39
+* @Last Modified time: 2018-05-24 15:47:35
 */
 
 const Hogan = require('hogan.js');
-var htmlTips = require('../page/common/message/tips.tpl');
+var htmlTips = require('../page/common/tpl/tips.tpl');
 
 
 const config = {
@@ -103,7 +103,7 @@ var gs = {
 			return !!value;
 		}
 		// 手机号验证
-		if (type === 'cellphone') {
+		if (type === 'phone') {
 			return /^1\d{10}$/.test(value);
 		}
 		// 邮箱验证

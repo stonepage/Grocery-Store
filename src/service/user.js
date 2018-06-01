@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-04-11 18:31:14
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-05-18 17:03:43
+* @Last Modified time: 2018-05-25 19:38:03
 */
 
 
@@ -98,6 +98,39 @@ const User = {
 		gs.request({
 			url: gs.getServerUrl('/user/forget_reset_password.do'),
 			data: newpassword,
+			method: 'post',
+			success: resolve,
+			error: reject
+		})
+	},
+
+
+	// 用户中心——获取用户信息
+	getUserInfo: function(resolve, reject) {
+		gs.request({
+			url: gs.getServerUrl('/user/get_information.do'),
+			method: 'post',
+			success: resolve,
+			error: reject
+		})	
+	},
+
+	// 用户信息更新
+	updateUserInfo: function(newUserInfo, resolve, reject) {
+		gs.request({
+			url: gs.getServerUrl('/user/update_information.do'),
+			data: newUserInfo,
+			method: 'post',
+			success: resolve,
+			error: reject
+		})	
+	},
+
+	// 登录后的修改密码
+	updatePassword: function(newUserInfo, resolve, reject) {
+		gs.request({
+			url: gs.getServerUrl('/user/reset_password.do'),
+			data: newUserInfo,
 			method: 'post',
 			success: resolve,
 			error: reject

@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-05-17 17:57:30
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-05-18 17:25:48
+* @Last Modified time: 2018-05-25 19:24:02
 */
 
 import '../../assets/css/mixin.less';
@@ -11,7 +11,8 @@ import _user from '../../service/user';
 import stepUsernameTpl from './stepOne.tpl';
 import stepAnswerTpl from './stepTwo.tpl';
 import stepPasswordTpl from './stepThree.tpl';
-import errMsgTpl from '../user-login/errMsg.tpl';
+import errMsgTpl from '../common/tpl/errMsg.tpl';
+
 
 
 
@@ -26,7 +27,7 @@ function loadTpl(tpl, data) {
 	return gs.renderTpl(tpl, data);
 }
 
-
+// 找回密码
 function PasswordReset() {}
 
 PasswordReset.prototype = {

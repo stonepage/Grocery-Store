@@ -2,7 +2,7 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:47:17
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-05-18 11:33:34
+* @Last Modified time: 2018-05-25 16:25:05
 */
 const _path = require('path');
 const webpack = require('webpack');
@@ -23,6 +23,9 @@ let entryObj = {
 	'user-login': [entryPath('user-login/index.js')],
 	'user-register': [entryPath('user-register/index.js')],
 	'password-reset': [entryPath('password-reset/index.js')],
+	'password-update': [entryPath('password-update/index.js')],
+	'user-center': [entryPath('user-center/index.js')],
+	// 'user-update': [entryPath('user-update/index.js')],
 	'result': [entryPath('result/index.js')],
 	'vendor': ['jquery'],
 }
@@ -176,6 +179,9 @@ const config = {
 		new HtmlWebpackPlugin(getHtmlConfig('user-register', '用户注册')),
 		new HtmlWebpackPlugin(getHtmlConfig('result', '操作结果')),
 		new HtmlWebpackPlugin(getHtmlConfig('password-reset', '找回密码')),
+		new HtmlWebpackPlugin(getHtmlConfig('password-update', '修改密码')),
+		new HtmlWebpackPlugin(getHtmlConfig('user-center', '用户中心')),
+		// new HtmlWebpackPlugin(getHtmlConfig('user-update', '修改个人信息')),
 
 
 

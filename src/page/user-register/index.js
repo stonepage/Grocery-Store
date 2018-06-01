@@ -2,15 +2,16 @@
 * @Author: GARNET
 * @Date:   2018-03-27 17:02:25
 * @Last Modified by:   GARNET
-* @Last Modified time: 2018-05-18 11:28:00
+* @Last Modified time: 2018-05-28 11:55:56
 */
 
 
 import gs from '../../utils/gs';
+import formValidate from '../../utils/formValidate';
 import _user from '../../service/user';
 import '../../assets/css/mixin.less';
 import styles from './index.css';
-import errMsgTpl from './errMsg.tpl';
+import errMsgTpl from '../common/tpl/errMsg.tpl';
 
 
 
@@ -28,7 +29,7 @@ function formError(flag, errMsg) {
 	
 }
 
-
+// 用户注册
 function UserRegister() {}
 
 UserRegister.prototype = {
@@ -46,7 +47,7 @@ UserRegister.prototype = {
 		this.$username = $('#username');
 		this.$password = $('#password');
 		this.$passwordConfirm = $('#passwordConfirm');
-		this.$cellphone = $('#cellphone');
+		this.$phone = $('#phone');
 		this.$email = $('#email');
 		this.$question = $('#question');
 		this.$answer = $('#answer');
@@ -94,13 +95,13 @@ UserRegister.prototype = {
 			username: $.trim(this.$username.val()),
 			password: $.trim(this.$password.val()),
 			passwordConfirm: $.trim(this.$passwordConfirm.val()),
-			cellphone: $.trim(this.$cellphone.val()),
+			phone: $.trim(this.$phone.val()),
 			email: $.trim(this.$email.val()),
 			question: $.trim(this.$question.val()),
 			answer: $.trim(this.$answer.val())
 		};
 		// 注册表单验证
-		var validateResult = this.formValidate(formData);
+		var validateResult = formValidate(formData, {checkAll: true});
 
 		// 验证通过
 		if (validateResult.status) {
@@ -113,64 +114,7 @@ UserRegister.prototype = {
 		} else {
 			formError(false, validateResult.msg);
 		}
-
-	},
-
-	// 注册表单验证
-	formValidate: function(formData) {
-		var result = {
-			status: false,
-			msg: ''
-		};
-
-		if (!gs.validate(formData.username, 'required')) {
-			result.msg = '用户名不能为空';
-			return result;
-		}
-		if (!gs.validate(formData.password, 'required')) {
-			result.msg = '密码不能为空';
-			return result;
-		}
-		if (formData.password.length < 6) {
-			result.msg = '密码长度不能少于6位';
-			return result;
-		}
-
-		// 验证两次密码是否一致
-		if (formData.password !== formData.passwordConfirm) {
-			result.msg = '两次输入的密码不一致';
-			return result;
-		}
-
-		// 验证手机号
-		if (!gs.validate(formData.cellphone, 'cellphone')) {
-			result.msg = '手机号格式不正确';
-			return result;
-		}
-		// 验证邮箱
-		if (!gs.validate(formData.email, 'email')) {
-			result.msg = '邮箱格式不正确';
-			return result;
-		}
-		// 验证密码提示问题
-		if (!gs.validate(formData.question, 'required')) {
-			result.msg = '密码提示问题不能为空';
-			return result;
-		}
-		// 验证密码提示问题答案
-		if (!gs.validate(formData.answer, 'required')) {
-			result.msg = '密码提示问题答案不能为空';
-			return result;
-		}
-
-
-		// 验证通过
-		result.status = true;
-		result.msg = '验证通过';
-		return result;
-
 	}
-
 
 }
 
